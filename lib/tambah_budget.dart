@@ -6,16 +6,11 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 
 class Budget {
-  late String judul;
-  late int nominal;
-  late String pemasukan;
-  late DateTime? dateTime;
-  Budget(String judul, int nominal, String pemasukan, DateTime? dateTime) {
-    this.judul = judul;
-    this.nominal = nominal;
-    this.pemasukan = pemasukan;
-    this.dateTime = dateTime;
-  }
+  String judul;
+  int nominal;
+  String pemasukan;
+  DateTime? dateTime;
+  Budget(this.judul, this.nominal, this.pemasukan, this.dateTime);
   static List<Budget> budgetData = [];
 }
 
@@ -44,8 +39,7 @@ class _MyFormPageState extends State<MyFormPage> {
       drawer: const ScfDrawer(),
       body: Form(
         key: _formKey,
-        child: SingleChildScrollView(
-            child: Container(
+        child: Container(
           height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.all(20.0),
           child: Column(
@@ -102,6 +96,9 @@ class _MyFormPageState extends State<MyFormPage> {
                     if (value == null || value.isEmpty) {
                       return 'Nominal tidak boleh kosong!';
                     }
+                    if (int.tryParse(value!) == null)
+                      return 'Nominal harus berupa angka!';
+
                     return null;
                   },
                 ),
@@ -137,6 +134,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   });
                 },
               ),
+              Spacer(),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: TextButton(
@@ -149,20 +147,15 @@ class _MyFormPageState extends State<MyFormPage> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Budget.budgetData
-                          .add(new Budget(_judul, _nominal, _pemasukan, _dateTime));
-                      for (var i = 0; i < Budget.budgetData.length; i++) {
-                        print(Budget.budgetData[i].judul +
-                            " " +
-                            Budget.budgetData[i].nominal.toString());
-                      }
+                      Budget.budgetData.add(
+                          new Budget(_judul, _nominal, _pemasukan, _dateTime));
                     }
                   },
                 ),
               ),
             ],
           ),
-        )),
+        ),
       ),
     );
   }

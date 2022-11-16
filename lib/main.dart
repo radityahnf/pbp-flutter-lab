@@ -1,7 +1,5 @@
 import 'package:counter_7/drawer.dart';
 import 'package:flutter/material.dart';
-import 'tambah_budget.dart';
-import 'show_budget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -108,11 +106,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             (_counter % 2 == 0
-                ? Text(
+                ? const Text(
                     'Genap',
                     style: TextStyle(color: Colors.red),
                   )
-                : Text(
+                : const Text(
                     'Ganjil',
                     style: TextStyle(color: Colors.blue),
                   )),

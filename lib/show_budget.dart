@@ -41,7 +41,7 @@ class _MyBudgetPageState extends State<MyBudgetPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form'),
+        title: Text('Data Budget'),
       ),
       // Menambahkan drawer menu
       drawer: const ScfDrawer(),
@@ -59,8 +59,12 @@ class _MyBudgetPageState extends State<MyBudgetPage> {
                       budgetData[index].judul,
                       style: TextStyle(fontSize: 18),
                     ),
-                    Text(
-                        " ${budgetData[index].dateTime?.day}-${budgetData[index].dateTime?.month}-${budgetData[index].dateTime?.year} ", style: TextStyle(fontSize: 12),),
+                    (budgetData[index].dateTime != null
+                        ? Text(
+                            " ${budgetData[index].dateTime?.day}-${budgetData[index].dateTime?.month}-${budgetData[index].dateTime?.year} ",
+                            style: TextStyle(fontSize: 12),
+                          )
+                        : SizedBox())
                   ],
                 ),
                 subtitle: Row(
