@@ -1,9 +1,9 @@
-import 'package:counter_7/drawer.dart';
+import 'package:counter_7/widget/drawer.dart';
 
-import 'show_budget.dart';
+
 
 import 'package:flutter/material.dart';
-import 'main.dart';
+
 
 class Budget {
   String judul;
@@ -96,8 +96,9 @@ class _MyFormPageState extends State<MyFormPage> {
                     if (value == null || value.isEmpty) {
                       return 'Nominal tidak boleh kosong!';
                     }
-                    if (int.tryParse(value!) == null)
+                    if (int.tryParse(value) == null) {
                       return 'Nominal harus berupa angka!';
+                    }
 
                     return null;
                   },
