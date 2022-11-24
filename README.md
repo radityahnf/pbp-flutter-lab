@@ -63,3 +63,29 @@ Navigator mengimplementasikan suatu stack, ketika suatu tampilan baru di push, m
 3. Membuat form untuk mendapatkan judul, nominal, jenis, dan tanggal dari user.
 4. Memasukkan data yang telah didapatkan dari form ke dalam list yang berisi Budget
 5. Membuat page untuk menampilkan data yang telah disimpan di dalam list Budget
+
+## Pertanyaan Tugas 9
+
+### Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Bisa, tetapi kita tidak bisa memastikan apakah data JSON yang diambil sudah memiliki bentuk seperti yang kita inginkan. Sehingga akan lebih baik apabila kita membuat model terlebih dahulu.
+
+### Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+
+1. Checkbox membuat checkbox yang memiliki suatu event onChange
+2. Expanded membuat text tidak overflow
+3. FutureBuilder membuat widget berdasarkan snapshot yang diambil dari Future
+
+### Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+
+Menambahkan depedensi http, kemudian melakukan GET pada data json yang selanjutnya dikonversikan ke dalam suatu model yang dibuat. Data json kemudian ditampilkan dengan menggunakan FutureBuilder.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+1. Menambahkan navigasi ke mywatchlist pada drawer
+2. Menambahkan depedency http
+3. Membuat model untuk data json
+4. Membuat function untuk mengambil data json
+5. Menampilkan data dalam bentuk inkwell
+6. Membuat halaman detail untuk watchlist
+
